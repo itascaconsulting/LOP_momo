@@ -1,88 +1,105 @@
+model new
+sketch set create 'jason'
 sketch point create (0, 0)
-sketch point create (-20, 0)
-sketch point create (-20, -15)
-sketch point create (0, -15)
-sketch point create (-20, -30)
-sketch point create (0, -30)
-sketch point create (-40, -15)
-sketch point create (-40, -30)
-sketch point create (-20, -45)
-sketch point create (0, -45)
-sketch point create (-40, -45)
-sketch point create (-60, -30)
-sketch point create (-60, -45)
-sketch point create (-20, -60)
-sketch point create (0, -60)
-sketch point create (-40, -60)
-sketch point create (-60, -60)
-sketch point create (-80, -45)
-sketch point create (-80, -60)
-sketch point create (-20, -75)
-sketch point create (0, -75)
-sketch point create (-40, -75)
-sketch point create (-60, -75)
-sketch point create (-80, -75)
-sketch point create (-100, -60)
-sketch point create (-100, -75)
+sketch point create (-1, 0)
+sketch point create (-1, -1)
+sketch point create (0, -1)
+sketch point create (-2, 0)
+sketch point create (-2, -1)
+sketch point create (-1, -2)
+sketch point create (0, -2)
+sketch point create (-3, 0)
+sketch point create (-3, -1)
+sketch point create (-2, -2)
+sketch point create (-1, -3)
+sketch point create (0, -3)
+sketch point create (-4, 0)
+sketch point create (-4, -1)
+sketch point create (-3, -2)
+sketch point create (-2, -3)
+sketch point create (-1, -4)
+sketch point create (0, -4)
+sketch point create (-5, 0)
+sketch point create (-5, -1)
+sketch point create (-4, -2)
+sketch point create (-3, -3)
+sketch point create (-2, -4)
+sketch point create (-1, -5)
+sketch point create (0, -5)
 sketch edge create by-points 1 2
 sketch edge create by-points 2 3
 sketch edge create by-points 3 4
 sketch edge create by-points 4 1
-sketch edge create by-points 4 3
-sketch edge create by-points 3 5
+sketch block create by-points 1 2 3 4 group 'cut0'
+sketch edge create by-points 2 5
 sketch edge create by-points 5 6
-sketch edge create by-points 6 4
+sketch edge create by-points 6 3
+sketch edge create by-points 3 2
+sketch block create by-points 2 5 6 3 group 'cut1'
+sketch edge create by-points 4 3
 sketch edge create by-points 3 7
 sketch edge create by-points 7 8
-sketch edge create by-points 8 5
-sketch edge create by-points 5 3
-sketch edge create by-points 6 5
+sketch edge create by-points 8 4
+sketch block create by-points 4 3 7 8 group 'cut1'
 sketch edge create by-points 5 9
 sketch edge create by-points 9 10
 sketch edge create by-points 10 6
-sketch edge create by-points 5 8
-sketch edge create by-points 8 11
-sketch edge create by-points 11 9
-sketch edge create by-points 9 5
-sketch edge create by-points 8 12
+sketch edge create by-points 6 5
+sketch block create by-points 5 9 10 6 group 'cut2'
+sketch edge create by-points 3 6
+sketch edge create by-points 6 11
+sketch edge create by-points 11 7
+sketch edge create by-points 7 3
+sketch block create by-points 3 6 11 7 group 'cut2'
+sketch edge create by-points 8 7
+sketch edge create by-points 7 12
 sketch edge create by-points 12 13
-sketch edge create by-points 13 11
-sketch edge create by-points 11 8
-sketch edge create by-points 10 9
+sketch edge create by-points 13 8
+sketch block create by-points 8 7 12 13 group 'cut2'
 sketch edge create by-points 9 14
 sketch edge create by-points 14 15
 sketch edge create by-points 15 10
-sketch edge create by-points 9 11
-sketch edge create by-points 11 16
-sketch edge create by-points 16 14
-sketch edge create by-points 14 9
-sketch edge create by-points 11 13
-sketch edge create by-points 13 17
-sketch edge create by-points 17 16
+sketch edge create by-points 10 9
+sketch block create by-points 9 14 15 10 group 'cut3'
+sketch edge create by-points 6 10
+sketch edge create by-points 10 16
 sketch edge create by-points 16 11
-sketch edge create by-points 13 18
+sketch edge create by-points 11 6
+sketch block create by-points 6 10 16 11 group 'cut3'
+sketch edge create by-points 7 11
+sketch edge create by-points 11 17
+sketch edge create by-points 17 12
+sketch edge create by-points 12 7
+sketch block create by-points 7 11 17 12 group 'cut3'
+sketch edge create by-points 13 12
+sketch edge create by-points 12 18
 sketch edge create by-points 18 19
-sketch edge create by-points 19 17
-sketch edge create by-points 17 13
-sketch edge create by-points 15 14
+sketch edge create by-points 19 13
+sketch block create by-points 13 12 18 19 group 'cut3'
 sketch edge create by-points 14 20
 sketch edge create by-points 20 21
 sketch edge create by-points 21 15
-sketch edge create by-points 14 16
-sketch edge create by-points 16 22
-sketch edge create by-points 22 20
-sketch edge create by-points 20 14
-sketch edge create by-points 16 17
-sketch edge create by-points 17 23
-sketch edge create by-points 23 22
+sketch edge create by-points 15 14
+sketch block create by-points 14 20 21 15 group 'cut4'
+sketch edge create by-points 10 15
+sketch edge create by-points 15 22
 sketch edge create by-points 22 16
-sketch edge create by-points 17 19
-sketch edge create by-points 19 24
-sketch edge create by-points 24 23
+sketch edge create by-points 16 10
+sketch block create by-points 10 15 22 16 group 'cut4'
+sketch edge create by-points 11 16
+sketch edge create by-points 16 23
 sketch edge create by-points 23 17
-sketch edge create by-points 19 25
+sketch edge create by-points 17 11
+sketch block create by-points 11 16 23 17 group 'cut4'
+sketch edge create by-points 12 17
+sketch edge create by-points 17 24
+sketch edge create by-points 24 18
+sketch edge create by-points 18 12
+sketch block create by-points 12 17 24 18 group 'cut4'
+sketch edge create by-points 19 18
+sketch edge create by-points 18 25
 sketch edge create by-points 25 26
-sketch edge create by-points 26 24
-sketch edge create by-points 24 19
+sketch edge create by-points 26 19
+sketch block create by-points 19 18 25 26 group 'cut4'
 sketch block create automatic
 zone generate from-sketch
