@@ -1,0 +1,88 @@
+sketch point create (0, 0)
+sketch point create (-20, 0)
+sketch point create (-20, -15)
+sketch point create (0, -15)
+sketch point create (-20, -30)
+sketch point create (0, -30)
+sketch point create (-40, -15)
+sketch point create (-40, -30)
+sketch point create (-20, -45)
+sketch point create (0, -45)
+sketch point create (-40, -45)
+sketch point create (-60, -30)
+sketch point create (-60, -45)
+sketch point create (-20, -60)
+sketch point create (0, -60)
+sketch point create (-40, -60)
+sketch point create (-60, -60)
+sketch point create (-80, -45)
+sketch point create (-80, -60)
+sketch point create (-20, -75)
+sketch point create (0, -75)
+sketch point create (-40, -75)
+sketch point create (-60, -75)
+sketch point create (-80, -75)
+sketch point create (-100, -60)
+sketch point create (-100, -75)
+sketch edge create by-points 1 2
+sketch edge create by-points 2 3
+sketch edge create by-points 3 4
+sketch edge create by-points 4 1
+sketch edge create by-points 4 3
+sketch edge create by-points 3 5
+sketch edge create by-points 5 6
+sketch edge create by-points 6 4
+sketch edge create by-points 3 7
+sketch edge create by-points 7 8
+sketch edge create by-points 8 5
+sketch edge create by-points 5 3
+sketch edge create by-points 6 5
+sketch edge create by-points 5 9
+sketch edge create by-points 9 10
+sketch edge create by-points 10 6
+sketch edge create by-points 5 8
+sketch edge create by-points 8 11
+sketch edge create by-points 11 9
+sketch edge create by-points 9 5
+sketch edge create by-points 8 12
+sketch edge create by-points 12 13
+sketch edge create by-points 13 11
+sketch edge create by-points 11 8
+sketch edge create by-points 10 9
+sketch edge create by-points 9 14
+sketch edge create by-points 14 15
+sketch edge create by-points 15 10
+sketch edge create by-points 9 11
+sketch edge create by-points 11 16
+sketch edge create by-points 16 14
+sketch edge create by-points 14 9
+sketch edge create by-points 11 13
+sketch edge create by-points 13 17
+sketch edge create by-points 17 16
+sketch edge create by-points 16 11
+sketch edge create by-points 13 18
+sketch edge create by-points 18 19
+sketch edge create by-points 19 17
+sketch edge create by-points 17 13
+sketch edge create by-points 15 14
+sketch edge create by-points 14 20
+sketch edge create by-points 20 21
+sketch edge create by-points 21 15
+sketch edge create by-points 14 16
+sketch edge create by-points 16 22
+sketch edge create by-points 22 20
+sketch edge create by-points 20 14
+sketch edge create by-points 16 17
+sketch edge create by-points 17 23
+sketch edge create by-points 23 22
+sketch edge create by-points 22 16
+sketch edge create by-points 17 19
+sketch edge create by-points 19 24
+sketch edge create by-points 24 23
+sketch edge create by-points 23 17
+sketch edge create by-points 19 25
+sketch edge create by-points 25 26
+sketch edge create by-points 26 24
+sketch edge create by-points 24 19
+sketch block create automatic
+zone generate from-sketch

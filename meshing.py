@@ -11,6 +11,15 @@ n_cuts = 5
 buffer_depth = (bench_height * n_cuts)*0.2
 cuts = []
 points = []
+
+def add(new_point):
+    assert type(new_point) is tuple
+    if new_point in points:
+        return points.index(new_point)
+    points.append(new_point)
+    return len(points)-1
+
+
 for i in range(n_cuts): # each cut
     polygons = []
 
@@ -18,7 +27,6 @@ for i in range(n_cuts): # each cut
         # top right
         x0 = -j*bench_width
         y0 = -i*bench_height
-
         # top left
         x1 = -(j+1)*bench_width
         y1 = -i*bench_height
@@ -28,12 +36,11 @@ for i in range(n_cuts): # each cut
         # bottom right
         x3 = -j*bench_width
         y3 = -(i+1)*bench_height
-
-        points.append((x0, y0))
-        points.append((x1, y1))
-        points.append((x2, y2))
-        points.append((x3, y3))
-        polygons.append(tuple(range(len(points)-4,len(points))))
+        i0 = add((x0, y0))
+        i1 = add((x1, y1))
+        i2 = add((x2, y2))
+        i3 = add((x3, y3))
+        polygons.append((i0,i1,i2,i3))
     cuts.append(polygons)
 
 # sketch point create {t_0}
@@ -49,3 +56,10 @@ for i in range(n_cuts): # each cut
 # zone generate from-sketch
 for p in points:
     print(f"sketch point create {p}")
+
+for cut in cuts:
+    for poly in cut:
+        print(f"sketch edge create by-points {poly[1-1]+1} {poly[2-1]+1}")
+        print(f"sketch edge create by-points {poly[2-1]+1} {poly[3-1]+1}")
+        print(f"sketch edge create by-points {poly[3-1]+1} {poly[4-1]+1}")
+        print(f"sketch edge create by-points {poly[4-1]+1} {poly[1-1]+1}")
