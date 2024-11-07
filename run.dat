@@ -1,0 +1,57 @@
+model restore "geo"
+model large-strain off
+zone separate by-face range group 'fault'
+zone interface create by-face range group 'fault'
+
+zone gridpoint fix velocity-x range group "left"
+zone gridpoint fix velocity-y range group "bottom"
+zone gridpoint fix velocity-x range position-x 0
+
+[UCS = 5.0e6]
+[friction =  35.0]
+[density =  3000]
+[E =  35e9]
+[nu =  0.3]
+[dx = 1.5]
+
+[Nphi       = (1.0+math.sin(friction*math.degrad))/(1.0-math.sin(friction*math.degrad))]
+[calcCo     = UCS /2./ math.sqrt(Nphi)]
+[Ten   = calcCo*0.1]
+
+zone cmodel assign mohr-coulomb 
+zone property density [density] young [E] poisson [nu] 
+zone property friction [friction] dilation 0 tension [Ten] cohesion [calcCo] 
+    
+zone interface  node prop stiffness-normal [10*E/dx] ...
+    stiffness-shear [E/dx] friction 25 tension 0 
+
+model gravity 9.81
+
+model solve elastic
+model solve 
+zone gridpoint initialize displacement 0 0
+model save "elastic"
+
+zone null range group "cut0"
+model solve
+model save "cut0"
+
+zone null range group "cut1"
+model solve
+model save "cut1"
+
+zone null range group "cut2"
+model solve
+model save "cut2"
+
+zone null range group "cut3"
+model solve
+model save "cut3"
+
+zone null range group "cut4"
+model solve
+model save "cut4"
+
+zone null range group "cut5"
+model solve
+model save "cut5"
