@@ -4,8 +4,8 @@ import matplotlib; matplotlib.rcParams["savefig.directory"] = "."
 from matplotlib import pyplot as plt
 plt.rcParams.update({'font.size': 18})
 
-bench_height = 1
-bench_width = 1
+bench_height = 10
+bench_width = 15
 #bench_angle = np.degrees()
 n_cuts = 5
 buffer_depth = (bench_height * n_cuts)*0.2
@@ -23,7 +23,7 @@ def add(new_point):
 for i in range(n_cuts): # each cut
     polygons = []
     n = i+1 # number of benches in this cut
-
+    final_points = dict()
     for j in range(n): # each bench
         x0 = 0-bench_width*(i-j)
         y0 = 0-bench_height*j
@@ -41,6 +41,9 @@ for i in range(n_cuts): # each cut
         i1 = add((x1, y1))
         i2 = add((x2, y2))
         i3 = add((x3, y3))
+        final_points[i1] = None
+        final_points[i2] = None
+        final_points[i3] = None
         polygons.append((i0,i1,i2,i3))
 
     cuts.append(polygons)
@@ -54,9 +57,10 @@ for p in points:
 for i, cut in enumerate(cuts):
     for poly in cut:
         print(f"sketch edge create by-points {poly[1-1]+1} {poly[2-1]+1}")
-        print(f"sketch edge create by-points {poly[2-1]+1} {poly[3-1]+1}")
-        print(f"sketch edge create by-points {poly[3-1]+1} {poly[4-1]+1}")
+        print(f"sketch edge create by-points {poly[2-1]+1} {poly[3-1]+1} group 'cut{i}'")
+        print(f"sketch edge create by-points {poly[3-1]+1} {poly[4-1]+1} group 'cut{i}'")
         print(f"sketch edge create by-points {poly[4-1]+1} {poly[1-1]+1}")
         print(f"sketch block create by-points {poly[1-1]+1} {poly[2-1]+1} {poly[3-1]+1} {poly[4-1]+1} group 'cut{i}'")
 print("sketch block create automatic")
 print("zone generate from-sketch")
+print(f"; {list(final_points.keys())}")
