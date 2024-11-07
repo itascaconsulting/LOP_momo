@@ -1,3 +1,4 @@
+
 import numpy as np
 import pandas as pd
 import matplotlib; matplotlib.rcParams["savefig.directory"] = "."
@@ -5,10 +6,12 @@ from matplotlib import pyplot as plt
 plt.rcParams.update({'font.size': 18})
 
 bench_height = 10
+dx = 2.5  # target zone size
 bench_width = 15
 #bench_angle = np.degrees()
 n_cuts = 5
-buffer_depth = (bench_height * n_cuts)*0.2
+buffer_depth = (bench_height * n_cuts)*0.4
+buffer_back = (bench_width * n_cuts)*0.75
 cuts = []
 points = []
 
@@ -50,6 +53,14 @@ for i in range(n_cuts): # each cut
 
 print("model new")
 print("sketch set create 'jason'")
+print(f"sketch edge zone-length-default {dx}")
+f0 = add((-75, -22)) # fault
+f1 = add((-24, -48))
+
+# outer box
+box = (add((-(n_cuts*bench_width+buffer_back), 0)),
+       add((-(n_cuts*bench_width+buffer_back), -(n_cuts*bench_height+buffer_depth))),
+       add((0, -(n_cuts*bench_height+buffer_depth))))
 
 for p in points:
     print(f"sketch point create {p}")
@@ -61,6 +72,14 @@ for i, cut in enumerate(cuts):
         print(f"sketch edge create by-points {poly[3-1]+1} {poly[4-1]+1} group 'cut{i}'")
         print(f"sketch edge create by-points {poly[4-1]+1} {poly[1-1]+1}")
         print(f"sketch block create by-points {poly[1-1]+1} {poly[2-1]+1} {poly[3-1]+1} {poly[4-1]+1} group 'cut{i}'")
-print("sketch block create automatic")
+
+
+print(f"sketch edge create by-points {f0+1} {f1+1}")
+print(f"sketch edge create by-points {tuple(final_points.keys())[0]+1} {box[0]+1}")
+print(f"sketch edge create by-points {box[0]+1} {box[1]+1}")
+print(f"sketch edge create by-points {box[1]+1} {box[2]+1}")
+print(f"sketch edge create by-points {box[2]+1} {tuple(final_points.keys())[-1]+1}")
+intact = list(final_points.keys())+list(box)
+print(f"sketch block create by-points {tuple(map(lambda _:_+1, intact))}")
+print(f"sketch mesh target-size {dx}")
 print("zone generate from-sketch")
-print(f"; {list(final_points.keys())}")

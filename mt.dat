@@ -1,5 +1,6 @@
 model new
 sketch set create 'jason'
+sketch edge zone-length-default 1
 sketch point create (0, 0)
 sketch point create (-15, 0)
 sketch point create (-15, -10)
@@ -26,6 +27,11 @@ sketch point create (-45, -30)
 sketch point create (-30, -40)
 sketch point create (-15, -50)
 sketch point create (0, -50)
+sketch point create (-75, -22)
+sketch point create (-24, -48)
+sketch point create (-131.25, 0)
+sketch point create (-131.25, -70.0)
+sketch point create (0, -70.0)
 sketch edge create by-points 1 2
 sketch edge create by-points 2 3 group 'cut0'
 sketch edge create by-points 3 4 group 'cut0'
@@ -101,6 +107,11 @@ sketch edge create by-points 18 25 group 'cut4'
 sketch edge create by-points 25 26 group 'cut4'
 sketch edge create by-points 26 19
 sketch block create by-points 19 18 25 26 group 'cut4'
-sketch block create automatic
+sketch edge create by-points 27 28
+sketch edge create by-points 20 29
+sketch edge create by-points 29 30
+sketch edge create by-points 30 31
+sketch edge create by-points 31 26
+sketch block create by-points (20, 21, 15, 22, 16, 23, 17, 24, 18, 25, 26, 29, 30, 31)
+sketch mesh target-size 2.5
 zone generate from-sketch
-; [19, 20, 14, 21, 15, 22, 16, 23, 17, 24, 25]
